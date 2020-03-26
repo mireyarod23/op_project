@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+ <b-container>
+        <b-jumbotron header="FDA Drugs" lead="Drug Interaction">
+        </b-jumbotron>
+
+        <b-form-group
+          horizontal
+          :label-cols="1"
+          description="Search the drugs.">
+          <b-form-input v-model.trim="name"></b-form-input>
+        </b-form-group>
+
+        <b-alert variant="success" :show="showAlert">Hello {{ name }}</b-alert>
+      </b-container>
+        {{ info }}
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import axios from '';
+
+// testing the api by r
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data () {
+    return  {
+      info : null
+    }
+  },
+   mounted () {
+    axios
+      .get('https://api.fda.gov/drug/event.json?search=receivedate:[20040101+TO+20081231]&limit=1')
+      .then(response => (this.info = response))
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
