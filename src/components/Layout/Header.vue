@@ -1,7 +1,7 @@
 <template>
 <header class="header">
-    <h1>NASA Images</h1>
-
+  <img alt="NASA logo" src="../../assets/Open.png"/>
+   <h3>Images</h3>
 </header>
 </template>
 
@@ -16,6 +16,13 @@ export default {
         background: #333;
         padding: 10px;
         color: white;
-        text-align: center;  
+        text-align: left; 
+       
+    }
+    .header img{
+        height: 100px;
+    }
+    .header h3 {
+      display: inline;
     }
 </style>

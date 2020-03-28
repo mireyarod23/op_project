@@ -3,14 +3,12 @@ Project using an api.
 -Research on API and ways to break down to be show data to user.
 
 
-The vue application will demonstrate 
-    - Consuming an API
-    - Routing 
-    - Resusable templeting
-    - Components
-    - Props
-    
+The vue application will demonstrate:
+- Consuming an API
+- Routing 
+- Resusable templeting
 
+Add on that were installed:
 - Install Vetur on Visual Studio Code  
 - Using Axios to consume an API
 - Frameworks added
