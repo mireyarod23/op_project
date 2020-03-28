@@ -1,13 +1,15 @@
 # op-app
-Project using FDA api drug component. 
--Researching ways to break down the api to be consumable.
+Project using an api. 
+-Research on API and ways to break down to be show data to user.
+
 
 The vue application will demonstrate 
     - Consuming an API
     - Routing 
     - Resusable templeting
+    - Components
+    - Props
     
-
 
 - Install Vetur on Visual Studio Code  
 - Using Axios to consume an API
