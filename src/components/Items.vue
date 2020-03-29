@@ -1,15 +1,14 @@
 <template>
     <div class="items">
-       
-        <b-container>
-             <b-form-input label="Search" 
+         <b-form-input label="Search"  
                             v-model="query" 
-                            placeholder="Search Moon, Earth, or Pluto..." 
-                            @update="getResult(query)">
+                            placeholder="Search..." 
+                            :formatter="getResult(query)"
+                            size="lg">
                 </b-form-input>
             <b-row align-v="center">
                     <b-card-group deck>
-                    <cardLayout v-for="result in results" 
+                    <cardLayout  v-for="result in results" 
                     :key="result.id"
                     :img_title="result.data[0].title"
                     :img="result.links[0].href"
@@ -18,7 +17,6 @@
                     </cardLayout>
                     </b-card-group>
             </b-row>
-        </b-container>
     </div>
 </template>
 
@@ -41,13 +39,14 @@ export default {
 methods :{
     //Method that will access api 
     // TODO: remove console
+    // Add error catch
     getResult(query){
         axios.get ('https://images-api.nasa.gov/search?q='+ query + '&media_type=image' )
             .then(response => {
             console.log(response.data.collection.items);
             this.results = response.data.collection.items;
-        });
-    }
+            });
+        }
     }
 }
 </script>

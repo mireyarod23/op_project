@@ -1,51 +1,43 @@
 <template>
-    <div class="row">
-    <!-- <div class="col-md-4" v-bind:key="results.items" v-for="(result.items) in results">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <div class="panel-title">
-            <h4 class="card-title">{{ result.title }}</h4>
-          </div>
-        </div>
-        <div class="panel-body">
-          
-            <p>Year: {{ result.release_date }}</p>
-            <p>Director: {{ result.director }}</p>
-            
-            <router-link :to="'/film/' + (index + 1)">
-              <a :href="'/film/' + (index + 1)" class="btn btn-primary btn-md pull-left">Go Film Details</a>
-          </router-link>
-        </div>
-      </div>
-    </div> -->
+    <div class="home">
+      <!-- <b-container> -->
+          <!-- <b-row>
+            <b-col sm="2">
+                <Nav/>
+            </b-col>
+            <b-col>
+                <Items></Items>
+            </b-col>
+        </b-row> -->
+       
+       <!-- </b-container> -->
+    <div>
+    <b-card no-body>
+        <b-tabs pills card vertical nav-wrapper-class="col-2">
+        <b-tab title="Tab 1" active>
+            <b-card-text>  
+                <Items/>
+            </b-card-text>
+        </b-tab>
+        <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
+        <b-tab title="Tab 3"><b-card-text>Tab contents 3</b-card-text></b-tab>
+        </b-tabs>
+    </b-card>
+</div>
   </div>
 </template>
 
 <script>
- import axios from 'axios';
-
+import Items from '../components/Items'
 // testing the api by r
 export default {
   name: 'home',
-  data() {
-    return {
-      results: {},
-    };
-  },
-  created() {
-    this.fetchItems();
-  },
-  methods: {
-    fetchItems() {
-     axios
-      .get('https://swapi.co/api/?format=json')
-      .then((response) => {
-        this.Items = response.data;
-      }, (error)  =>  {
-        console.log(error);
-      })
-    },
-  },
+   components: {
+    Items
+    }
 };
-
 </script>
+
+<style scoped>
+
+</style>
