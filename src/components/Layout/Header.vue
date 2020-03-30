@@ -1,7 +1,7 @@
 <template>
 <header class="header">
   <img alt="NASA logo" src="../../assets/Open.png"/>
-   <h3>Images</h3>
+   <h4>Overview</h4>
 </header>
 </template>
 
@@ -14,7 +14,7 @@ export default {
 <style scoped>
     .header {
         background: #333;
-        padding: 10px;
+        padding: 5px;
         color: white;
         text-align: left; 
        
@@ -22,7 +22,7 @@ export default {
     .header img{
         height: 100px;
     }
-    .header h3 {
+    .header h4 {
       display: inline;
     }
 </style>

@@ -1,21 +1,23 @@
 <template>
-    <div class="items">
-         <b-form-input label="Search"  
-                            v-model="query" 
-                            placeholder="Search..." 
-                            :formatter="getResult(query)"
-                            size="lg">
-                </b-form-input>
-            <b-row align-v="center">
-                    <b-card-group deck>
+    <div class="items"  >
+            <b-row :show="false" class="m-0" align-v="center" >
+              <b-input-group   class="mb-2">
+                <b-input-group-prepend  is-text >
+                    <b-icon  icon="search" ></b-icon>
+                </b-input-group-prepend >
+                    <b-form-input class="bg-dark text-light" v-model="query" :formatter="getResult(query)" type="search" placeholder="Search..."></b-form-input>
+                </b-input-group>
+                <b-card-group deck >
                     <cardLayout  v-for="result in results" 
                     :key="result.id"
                     :img_title="result.data[0].title"
                     :img="result.links[0].href"
-                    :desc="result.data[0].description"
-                    >
+                    :desc="result.data[0].description">
                     </cardLayout>
-                    </b-card-group>
+                </b-card-group>
+                  <!-- <b-overlay :show="true" no-wrap>
+                 
+                 </b-overlay> -->
             </b-row>
     </div>
 </template>
@@ -38,15 +40,20 @@ export default {
     },
 methods :{
     //Method that will access api 
-    // TODO: remove console
-    // Add error catch
     getResult(query){
         axios.get ('https://images-api.nasa.gov/search?q='+ query + '&media_type=image' )
             .then(response => {
-            console.log(response.data.collection.items);
+            // console.log(response.data.collection.items);
             this.results = response.data.collection.items;
+            })
+            .catch(function (error) {
+            // handle error
+                console.log(error);
             });
-        }
+        },
+     accessItem(){
+         console.log("Hello world");
+     }
     }
 }
 </script>

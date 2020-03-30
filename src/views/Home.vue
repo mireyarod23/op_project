@@ -1,30 +1,21 @@
 <template>
-    <div class="home">
-      <!-- <b-container> -->
-          <!-- <b-row>
-            <b-col sm="2">
-                <Nav/>
-            </b-col>
-            <b-col>
-                <Items></Items>
-            </b-col>
-        </b-row> -->
-       
-       <!-- </b-container> -->
-    <div>
-    <b-card no-body>
-        <b-tabs pills card vertical nav-wrapper-class="col-2">
-        <b-tab title="Tab 1" active>
-            <b-card-text>  
-                <Items/>
-            </b-card-text>
+<div class="home">
+    <b-card no-body border-variant="dark"  >
+        <b-tabs card vertical class="vh-100"
+                 nav-wrapper-class="col-2 text-left" 
+                  >
+        <b-tab  title="Images" active >
+            <Items />
         </b-tab>
-        <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
+        <b-tab title="Earth"  >
+            <Items/>
+        </b-tab>
+        <b-tab title="Tab 2">
+            <b-card-text>Tab contents 2</b-card-text></b-tab>
         <b-tab title="Tab 3"><b-card-text>Tab contents 3</b-card-text></b-tab>
         </b-tabs>
     </b-card>
 </div>
-  </div>
 </template>
 
 <script>
@@ -38,6 +29,24 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scope>
+
+.nav-tabs{
+  background-color:#333 !important;
+}
+.tab-content{
+    background-color: rgb(36, 35, 35);
+    color:#fff;
+    padding:5px
+}
+.nav-tabs > li > a{
+  border: medium none;
+  color: gray;
+ /* background-color: darkgray; */
+}
+.nav-tabs > li > a:hover{
+    border-radius: 0;
+    color:#fff;
+}
 
 </style>

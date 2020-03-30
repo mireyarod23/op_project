@@ -1,6 +1,6 @@
 # op-app
 Project using an api. 
--Research on API and ways to break down to be show data to user.
+- Research on API and ways to break down to be show data to user.
 
 
 The vue application will demonstrate:
@@ -14,6 +14,7 @@ Add on that were installed:
 - Frameworks added
    - Bootstrap Vue 
 
+- Documentation of api https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
 ## Project setups
 ```
 npm install
