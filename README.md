@@ -8,11 +8,13 @@ The vue application will demonstrate:
 - Routing 
 - Resusable templeting
 
-Add on that were installed:
+Add-on :
 - Install Vetur on Visual Studio Code  
 - Using Axios to consume an API
+- Package Vue-bus Research "https://blog.logrocket.com/using-event-bus-in-vue-js-to-pass-data-between-components/"
 - Frameworks added
    - Bootstrap Vue 
+- Vuex for state management https://vuex.vuejs.org/
 
 - Documentation of api https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
 ## Project setups

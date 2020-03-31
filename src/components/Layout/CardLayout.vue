@@ -1,14 +1,16 @@
 <template>
     <div>
-       <b-card class="m-4 badge text-wrap"
+       <b-card class="m-3 badge text-wrap"
         img-alt="Image" 
-        style="max-width: 15rem;" 
+        style="max-width: 22rem;" 
         img-top
         bg-variant="dark"
-        text-variant="white"
+        border-variant="light"
+        text-variant=""
         :header="img_title"
-        border-variant="secondary"
-        header-border-variant="secondary"
+        :item ="item"
+        header-text-variant="light"
+        header-border-variant="light"
        @click="accessItem()"
         >
         <b-col>
@@ -21,19 +23,23 @@
 </template>
 
 <script>
+import { bus } from '../../main'
+
 //creating property to be accessed
 export default {
-    props: ["img_title", "img", "desc"],
+    props: ["img_title", "img", "desc", "item"],
 
     methods :{
+    //using bus to be able to pass the item click to show
      accessItem(){
          console.log("Hello world");
+         bus.$emit('changeIt', this.item);
      }
     }
 };
 </script>
 
-<style scoped>
+<style scoped >
 .thumbnail img {
     object-fit: cover;
     height:100px;

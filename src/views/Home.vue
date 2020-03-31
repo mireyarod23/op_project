@@ -1,11 +1,17 @@
 <template>
 <div class="home">
-    <b-card no-body border-variant="dark"  >
+    <b-card no-body border-variant="light"  >
         <b-tabs card vertical class="vh-100"
-                 nav-wrapper-class="col-2 text-left" 
+                 nav-wrapper-class="col-2 mx-0" 
                   >
-        <b-tab  title="Images" active >
+        <b-tab title="Images" active >
             <Items />
+        </b-tab>
+        <b-tab active>
+            <template v-slot:title class="mp-0">
+                <b-spinner type="grow" small></b-spinner> I'm <i>custom</i> <strong>title</strong>
+            </template>
+            <p class="p-3">Tab contents 1</p>
         </b-tab>
         <b-tab title="Earth"  >
             <Items/>
@@ -30,12 +36,14 @@ export default {
 </script>
 
 <style scope>
-
+.home{
+    background-color:#333a40 !important;
+}
 .nav-tabs{
-  background-color:#333 !important;
+  background-color:#333a40!important;
 }
 .tab-content{
-    background-color: rgb(36, 35, 35);
+    background-color:#1e2225;
     color:#fff;
     padding:5px
 }
@@ -48,5 +56,6 @@ export default {
     border-radius: 0;
     color:#fff;
 }
+
 
 </style>
