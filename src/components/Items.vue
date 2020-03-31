@@ -1,3 +1,4 @@
+// TODO: create a reusable template for the overlay and pagination
 <template>
     <div class="items"  >
 
@@ -6,7 +7,7 @@
             <b-input-group-prepend  is-text >
                 <b-icon  icon="search" ></b-icon>
             </b-input-group-prepend >
-                <b-form-input class="bg-dark text-light" 
+                <b-form-input class="text-light" 
                                 v-model="txtSearch"
                                  @input="search()" 
                                  type="search" 
@@ -22,9 +23,9 @@
                     </cardLayout>
                     
                 </b-card-group>
-                <b-overlay :show="onShow" no-wrap >
+                <b-overlay :show="onShow" no-wrap opacity="0.6" variant="secondary">
                     <template v-slot:overlay >
-                    <div class="text-center">
+                    <!-- <div class="text-center ">
                         <b-icon icon="stopwatch" font-scale="3" animation="cylon"></b-icon>
                         <p id="cancel-label">Please wait...</p>
                         <b-button
@@ -32,10 +33,16 @@
                             variant="outline-danger"
                             size="sm"
                             aria-describedby="cancel-label"
-                            v-model="sText"
+                         
                             @click="onShow = false" >Cancel
                         </b-button>
-                    </div>
+                    </div> -->
+                    <overlayCard
+                     :img="selResults.links[0].href"
+                     :img_title="selResults.data[0].title"
+                     :desc="selResults.data[0].description">
+                    >
+                    </overlayCard>
                 </template>
                 </b-overlay> 
         </b-row> 
@@ -61,11 +68,13 @@ import CardLayout from './Layout/CardLayout'
 import { bus } from '../main'
 import store from '../store';
 import {mapGetters} from "vuex";
+import OverlayCard from './Layout/OverlayCard'
 
 export default {
     name: 'items',
     components : {
-        "cardLayout" : CardLayout
+        "cardLayout" : CardLayout,
+        "overlayCard" : OverlayCard
         },
     async mounted() {
         this.getRecords();
@@ -88,20 +97,24 @@ methods :{
         this.$store.dispatch("accessResults", "Earth");
     },
     paginate(currentPage) {
-        console.log(currentPage);
+        // console.log(currentPage);
       this.$store.dispatch("paginate", { currentPage, perPage: this.perPage });
     }
 },
  created (){
     bus.$on('changeIt', (data) => {
       this.onShow = true;
-      console.log(data);
+    //   console.log(data);
       this.selResults = data;
      
+    }),
+    bus.$on('closeOverlay', (data) =>{
+        this.onShow = data;
     })
   },
 
   computed: {
+      //accessing the getters
       ...mapGetters (["getDisplayResults", "getRows"]),
 
         results(){
@@ -111,6 +124,7 @@ methods :{
 }
 </script>
 
-<style >
+<style scoped>
 
-</style>
+</style>>
+

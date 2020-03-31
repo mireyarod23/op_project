@@ -3,18 +3,26 @@ Project using an api.
 - Research on API and ways to break down to be show data to user.
 
 
-The vue application will demonstrate:
-- Consuming an API
-- Routing 
+Application is demonstrating:
+- Consumabling an API
 - Resusable templeting
+- State management system
+- Implementing CSS framework
+- Component Event listeners (without state management system)
+
 
 Add-on :
 - Install Vetur on Visual Studio Code  
-- Using Axios to consume an API
+- Using Axios for consuming an API
 - Package Vue-bus Research "https://blog.logrocket.com/using-event-bus-in-vue-js-to-pass-data-between-components/"
 - Frameworks added
    - Bootstrap Vue 
 - Vuex for state management https://vuex.vuejs.org/
+
+TODO:
+   - Implement three.js model of earth. Dynamiclly interaction
+   - Further break down of api for interaction
+      - Adding more tabs on nav-tabs
 
 - Documentation of api https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
 ## Project setups

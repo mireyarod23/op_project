@@ -1,41 +1,41 @@
 <template>
     <div>
-       <b-card class="m-3 badge text-wrap"
+       <b-card class=" badge text-wrap"
         img-alt="Image" 
-        style="max-width: 22rem;" 
         img-top
         bg-variant="dark"
         border-variant="light"
         text-variant=""
-        :header="img_title"
-        :item ="item"
+        :title="img_title"
         header-text-variant="light"
         header-border-variant="light"
-       @click="accessItem()"
+       @click="closeOverlay()"
         >
-        <b-col>
-            <div class="thumbnail">
-            <b-card-img :src="img"></b-card-img>
-            </div>
+        <b-col>        
+            <b-card-img :src="img" img-top></b-card-img>
+              <b-card-text >
+                  {{desc}}
+             </b-card-text>
         </b-col>
     </b-card>
     </div>
 </template>
 
 <script>
+
 import { bus } from '../../main'
 
 //creating property to be accessed
 export default {
-    props: ["img_title", "img", "desc", "item"],
+    props: ["img_title", "img", "desc"],
 
     methods :{
-    //using bus to be able to pass the item click to show
-     accessItem(){
-        //  console.log("Hello world");
-         bus.$emit('changeIt', this.item);
-     }
+        closeOverlay(){
+        const show = false;
+        bus.$emit('closeOverlay', show);
+        }
     }
+
 };
 </script>
 
@@ -44,5 +44,8 @@ export default {
     object-fit: cover;
     height:100px;
     width:100%;
+}
+.thumbnail img:hover{
+
 }
 </style>
