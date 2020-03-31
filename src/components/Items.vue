@@ -13,7 +13,7 @@
                                  placeholder="Search..."></b-form-input>
             </b-input-group>
                 <b-card-group deck >          
-                    <cardLayout  v-for="result in results" 
+                    <cardLayout  v-for="result in getDisplayResults" 
                     :key="result.id"
                     :item ="result"
                     :img_title="result.data[0].title"
@@ -41,14 +41,17 @@
         </b-row> 
         <b-pagination
                 v-model="currentPage"
-                :total-rows=3
+                :total-rows="getRows"
                 :per-page="perPage"
                 first-text="First"
                 prev-text="Prev"
                 next-text="Next"
                 last-text="Last"
+                align="fill"
                 @input="paginate(currentPage)"
+                class="bg-secondary"
              ></b-pagination>  
+             
     </div>
 </template>
 
@@ -57,17 +60,20 @@
 import CardLayout from './Layout/CardLayout'
 import { bus } from '../main'
 import store from '../store';
+import {mapGetters} from "vuex";
 
 export default {
     name: 'items',
     components : {
         "cardLayout" : CardLayout
         },
+    async mounted() {
+        this.getRecords();
+    },
     data (){
         return{
             mesg: 'Items',
             txtSearch : '',
-            // results : '',
             selResults:'',
             onShow: false,
             perPage: 3,
@@ -75,21 +81,15 @@ export default {
         }
     },
 methods :{
-    //Method that will access api 
-    // getResult(query){
-    //     axios.get ('https://images-api.nasa.gov/search?q='+ query + '&media_type=image' )
-    //         .then(response => {
-    //         // console.log(response.data.collection.items);
-    //         this.results = response.data.collection.items;
-    //         })
-    //         .catch(function (error) {
-    //         // handle error
-    //             console.log(error);
-    //         });
-    //     },
     search(){
-        // console.log(this.query);
-        this.$store.dispatch("getResults", this.txtSearch);
+        this.$store.dispatch("accessResults", this.txtSearch);
+    },
+    async getRecords(){
+        this.$store.dispatch("accessResults", "Earth");
+    },
+    paginate(currentPage) {
+        console.log(currentPage);
+      this.$store.dispatch("paginate", { currentPage, perPage: this.perPage });
     }
 },
  created (){
@@ -100,20 +100,17 @@ methods :{
      
     })
   },
-  paginate(currentPage) {
-      this.$store.dispatch("paginate", { currentPage, perPage: this.perPage });
-    },
+
   computed: {
-      rows() {
-        return this.results.length;
-      },
-      results(){
+      ...mapGetters (["getDisplayResults", "getRows"]),
+
+        results(){
           return store.state.results; 
       }
   }
 }
 </script>
 
-<style scoped>
- 
+<style >
+
 </style>

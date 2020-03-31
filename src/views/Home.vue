@@ -7,16 +7,7 @@
         <b-tab title="Images" active >
             <Items />
         </b-tab>
-        <b-tab active>
-            <template v-slot:title class="mp-0">
-                <b-spinner type="grow" small></b-spinner> I'm <i>custom</i> <strong>title</strong>
-            </template>
-            <p class="p-3">Tab contents 1</p>
-        </b-tab>
-        <b-tab title="Earth"  >
-            <Items/>
-        </b-tab>
-        <b-tab title="Tab 2">
+        <b-tab title="Models">
             <b-card-text>Tab contents 2</b-card-text></b-tab>
         <b-tab title="Tab 3"><b-card-text>Tab contents 3</b-card-text></b-tab>
         </b-tabs>
