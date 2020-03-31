@@ -7,7 +7,7 @@
             <b-input-group-prepend  is-text >
                 <b-icon  icon="search" ></b-icon>
             </b-input-group-prepend >
-                <b-form-input class="text-light" 
+                <b-form-input class="text-dark" 
                                 v-model="txtSearch"
                                  @input="search()" 
                                  type="search" 
