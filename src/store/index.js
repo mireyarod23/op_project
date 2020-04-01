@@ -24,6 +24,8 @@ export default new Vuex.Store({
  },
   actions: {
       //Accessing api passing a parameter
+      //TODO: Add await for to allow objects to load add 
+      //spinning indicator
     async accessResults({commit, dispatch}, txtSearch){
         axios.get ('https://images-api.nasa.gov/search?q='+ txtSearch +'&media_type=image' )
         .then(response => {

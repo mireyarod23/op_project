@@ -1,7 +1,6 @@
 // TODO: create a reusable template for the overlay and pagination
 <template>
     <div class="items"  >
-
         <b-row class="m-0" align-v="center" >
             <b-input-group   class="mb-2">
             <b-input-group-prepend  is-text >
@@ -21,26 +20,14 @@
                     :img="result.links[0].href"
                     :desc="result.data[0].description">
                     </cardLayout>
-                    
                 </b-card-group>
-                <b-overlay :show="onShow" no-wrap opacity="0.6" variant="secondary">
+                <b-overlay :show="onShow" no-wrap  opacity="0.6" variant="secondary">
                     <template v-slot:overlay >
-                    <!-- <div class="text-center ">
-                        <b-icon icon="stopwatch" font-scale="3" animation="cylon"></b-icon>
-                        <p id="cancel-label">Please wait...</p>
-                        <b-button
-                            ref="cancel"
-                            variant="outline-danger"
-                            size="sm"
-                            aria-describedby="cancel-label"
-                         
-                            @click="onShow = false" >Cancel
-                        </b-button>
-                    </div> -->
-                    <overlayCard
+                    <overlayCard 
                      :img="selResults.links[0].href"
                      :img_title="selResults.data[0].title"
-                     :desc="selResults.data[0].description">
+                     :desc="selResults.data[0].description"
+                     :img_date="selResults.data[0].date_created">
                     >
                     </overlayCard>
                 </template>

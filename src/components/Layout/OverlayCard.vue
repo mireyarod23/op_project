@@ -6,17 +6,16 @@
         bg-variant="dark"
         border-variant="light"
         text-variant=""
-        :title="img_title"
         header-text-variant="light"
         header-border-variant="light"
        @click="closeOverlay()"
         >
-        <b-col>        
-            <b-card-img :src="img" img-top></b-card-img>
-              <b-card-text >
-                  {{desc}}
-             </b-card-text>
-        </b-col>
+        <b-card-img class="pb-2" :src="img" img-top></b-card-img>
+        <b-card-title class="text-left mb-2">{{img_title}}</b-card-title>
+         <b-card-sub-title class="text-left mb-2">{{img_date}}</b-card-sub-title>
+            <b-card-text  class=" text-xl-left font-weight-light h6 ">
+                {{desc}}
+        </b-card-text>
     </b-card>
     </div>
 </template>
@@ -27,7 +26,7 @@ import { bus } from '../../main'
 
 //creating property to be accessed
 export default {
-    props: ["img_title", "img", "desc"],
+    props: ["img_title", "img", "desc", "img_date"],
 
     methods :{
         closeOverlay(){
@@ -45,7 +44,5 @@ export default {
     height:100px;
     width:100%;
 }
-.thumbnail img:hover{
 
-}
 </style>

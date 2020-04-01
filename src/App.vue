@@ -29,5 +29,7 @@ export default {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.4;
     color: white;
+    background-color: black;
+    
   }
 </style>

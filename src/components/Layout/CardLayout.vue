@@ -45,4 +45,7 @@ export default {
     height:100px;
     width:100%;
 }
+.thumbnail img:hover{
+    transform: scale(1.05) !important; 
+}
 </style>
