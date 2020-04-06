@@ -1,8 +1,8 @@
 // TODO: create a reusable template for the overlay and pagination
 <template>
     <div class="items"  >
-        <b-row class="m-0" align-v="center" >
-            <b-input-group   class="mb-2">
+        <b-row class="mb-5" align-v="center" >
+            <b-input-group   class="ml-3">
             <b-input-group-prepend  is-text >
                 <b-icon  icon="search" ></b-icon>
             </b-input-group-prepend >
@@ -12,7 +12,7 @@
                                  type="search" 
                                  placeholder="Search..."></b-form-input>
             </b-input-group>
-                <b-card-group deck >          
+                <b-card-group deck class="justify-content-md-center">          
                     <cardLayout  v-for="result in getDisplayResults" 
                     :key="result.id"
                     :item ="result"

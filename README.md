@@ -4,11 +4,12 @@ Project using an api.
 
 
 Application is demonstrating:
-- Consumabling an API
-- Resusable templeting
+- Consuming an API
+- Reusable templating
 - State management system
 - Implementing CSS framework
 - Component Event listeners (without state management system)
+- Routing
 
 
 Add-on :

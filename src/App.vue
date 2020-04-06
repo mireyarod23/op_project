@@ -1,19 +1,19 @@
 <template>
   <div id="app">
      <Header />
-     <Home/>
+     <!-- <Home/> -->
+   
   </div>
 </template>
 
 <script>
 import Header from './components/Layout/Header'
-import Home from './views/Home'
+// import Home from './views/Home'
 
 export default {
   name: 'app',
   components: {
-    Header,
-    Home
+    Header
   }
 };
 </script>

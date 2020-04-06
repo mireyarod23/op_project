@@ -1,17 +1,7 @@
+//TODO: Fix dynamic tabs to work in all screens
 <template>
 <div class="home">
-    <b-card no-body border-variant="light"  >
-        <b-tabs card vertical class="vh-100"
-                 nav-wrapper-class="col-2 mx-0" 
-                  >
-        <b-tab title="Images" active >
-            <Items />
-        </b-tab>
-        <b-tab title="Model">
-            <b-card-text>Tab contents 2</b-card-text></b-tab>
-        <b-tab title="Tab 3"><b-card-text>Tab contents 3</b-card-text></b-tab>
-        </b-tabs>
-    </b-card>
+     <Items />
 </div>
 </template>
 
@@ -19,7 +9,7 @@
 import Items from '../components/Items'
 // testing the api by r
 export default {
-  name: 'home',
+  name: 'Home',
    components: {
     Items
     }
