@@ -19,6 +19,8 @@ Add-on :
 - Frameworks added
    - Bootstrap Vue 
 - Vuex for state management https://vuex.vuejs.org/
+- Three and Vue-threejs-composer https://github.com/sascha245/vue-threejs-composer
+- 
 
 TODO:
    - Implement three.js model of earth. Dynamiclly interaction

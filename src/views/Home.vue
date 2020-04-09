@@ -1,7 +1,18 @@
 //TODO: Fix dynamic tabs to work in all screens
 <template>
 <div class="home">
-     <Items />
+    <b-card no-body border-variant="light"  >
+        <b-tabs card vertical class="vh-100 "
+                 nav-wrapper-class="col-2 mx-0" 
+                  >
+        <b-tab active >
+                <template v-slot:title>
+                   <strong >Images</strong>
+                </template>
+                 <Items/>
+        </b-tab>
+        </b-tabs>
+    </b-card>
 </div>
 </template>
 

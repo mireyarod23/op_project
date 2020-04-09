@@ -14,7 +14,7 @@ export default new Router({
     },
     {
       path: '/planetary',
-      name: 'Planary',
+      name: 'Planetary',
       component: Planetary
     }
   ]

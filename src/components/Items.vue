@@ -2,11 +2,11 @@
 <template>
     <div class="items"  >
         <b-row class="mb-5" align-v="center" >
-            <b-input-group   class="ml-3">
+            <b-input-group   class="m-3 ">
             <b-input-group-prepend  is-text >
                 <b-icon  icon="search" ></b-icon>
             </b-input-group-prepend >
-                <b-form-input class="text-dark" 
+                <b-form-input class="text-dark j"
                                 v-model="txtSearch"
                                  @input="search()" 
                                  type="search" 
